@@ -110,7 +110,7 @@
     <test-java-agent-directory>${project.build.directory}/test-java-agent-libs</test-java-agent-directory>
     <jacoco-agent-jar>org.jacoco.agent-${version.jacoco.plugin}-runtime.jar</jacoco-agent-jar>
     <mockito-agent-jar>mockito-core-${mockito-core.version}.jar</mockito-agent-jar>
-    <sonar.organization>the-dna-squad</sonar.organization>
+    <sonar.organization>pth-sonarsource</sonar.organization>
     <sonar.host.url>https://dev19.sc-dev19.io</sonar.host.url>
   </properties>
 
