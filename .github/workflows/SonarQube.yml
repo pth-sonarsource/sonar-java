@@ -36,7 +36,9 @@ jobs:
           SONAR_ARCHITECTURE_EXPORT_GRAPHS: true
           SONAR_ARCHITECTURE_EXPORT_FLAVOR: true
           SONAR_ARCHITECTURE_EXPORT_ISSUES: true
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=the-dna-squad_sonar-java -DskipTests
+        run: |
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=the-dna-squad_sonar-java -DskipTests
+          ls -lR ./target/sonar/architecture/exports/
       - name: Store dna xml & json files
         uses: actions/upload-artifact@v4
         with:
