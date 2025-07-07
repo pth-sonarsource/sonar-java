@@ -5,7 +5,7 @@ on:
       commit_sha:
         description: 'Commit SHA to build'
         required: true
-        default: '${{ github.sha }}' # Defaults to the latest commit of the default branch
+        default: '${{ github.event.inputs.commit_sha }}' # Defaults to the latest commit of the default branch
 
 jobs:
   build:
