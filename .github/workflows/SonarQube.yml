@@ -39,8 +39,10 @@ jobs:
         run: |
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=the-dna-squad_sonar-java -DskipTests
           ls -lR ./target/sonar/architecture/exports/
+          echo "SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
+          echo "DATE=$(echo $(date +'%Y-%m-%d'))" >> $GITHUB_ENV
       - name: Store dna xml & json files
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ github.event.repository.name }}-dna-scan-artifacts
+          name: ${{ env.DATE }}-${{ github.event.repository.name }}-${{ env.SHORT_SHA }}-dna-scan-artifacts
           path: ./target/sonar/architecture/exports/
